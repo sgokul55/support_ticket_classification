@@ -1,0 +1,1 @@
+Additional Description: Internal session terminated with a runtime error UNCAUGHT_EXCEPTION (see ST22)

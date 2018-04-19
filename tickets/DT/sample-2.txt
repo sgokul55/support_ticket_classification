@@ -1,0 +1,17 @@
+Summary:Mandatory SSL CLient PSE missing: SSLC/100_SD
+Event Name: CLIENT_PSE_MISSING
+Event Context: SSLC/100_SD
+Application Component: BC-SEC-STP
+
+Solution:
+
+DT ticket
+
+Mandatory SSL Client PSE missing.
+
+Re-run SPC task:
+
+SAP_CLM_SYSTEM_CONFIGURATION   (Software Change and Software Upgrade) --> Update of the  Standard Anonymous (SSLC ANONYM) and Standard Default (SSLC DFAULT)
+
+SAP_CLM_APPL_CONFIGURATION   (Software Change and Software Upgrade) -->Update of the  SAP Anonymous (SSLC SA_<client>) and SAP Default (SSLC SD_<client>)
+

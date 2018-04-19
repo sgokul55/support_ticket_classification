@@ -1,0 +1,2 @@
+Description:ICs without a SAP_HYBRIS_MKT_IC Facet or without a Facets
+

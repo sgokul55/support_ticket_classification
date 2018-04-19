@@ -1,0 +1,23 @@
+Summary:Search Connector(s) cannot be used for search: BC-EIM-ESH
+Detailed Description:
+
+
+Event Name: CONNECTOR_NOT_SEARCHABLE
+Event Context: BC-EIM-ESH
+
+Additional Description:
+
+Consistency check of connector 'EBXALL~ESH_PS_TERMS_USR~' step 'Core Data Services' returns error
+Search on connector could not be executed
+Executing test search for conn. returned:
+
+Solution:
+Route this to BC-EIM-ESH
+
+
+
+If this event is raised not all connectors are searchable.
+Actions:
+•Execute task list SAP_ESH_CONSISTENCY_CHECK with transaction STC01.
+•If task list ends with errors create an incident (application component BC-EIM-ESH).
+•Attach the log to the incident or notice the task list run in the incident.

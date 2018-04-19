@@ -1,0 +1,9 @@
+Mandatory OAuth PSE missing. 
+
+Re-run SPC task:
+
+SAP_CLM_SEC   (Cloud Security) --> Maintain OAuth IdP
+
+REVOCATION_CHECK_DISABLED
+
+Certificate Revocation Check is not enabled. Re-run SPC task SAP_CLM_SYSTEM_CONFIGURATION!

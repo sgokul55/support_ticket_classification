@@ -1,0 +1,436 @@
+Ticket Short Description: 1010084521
+
+Job cancelled due to dump
+========================================================================
+
+Ticket Description:
+
+This incident has been created automatically. Since the Customer is not involved, the incident has to be solved internally by Service Provider/Support/Development to avoid negative impact for the customer business.
+
+Diagnostic Information:
+
+Event Name: ABAP_CANC_JOB_DUMP
+Event Context: Client: 100 Job Name: FCLM_FLOW_BUILDER_100
+Measured Value: 3.0000000000
+Threshold for incident creation: Measured value >= 1
+Application Component: FIN-FSCM-CLM
+
+Additional Description:
+
+Internal session terminated with a runtime error UNCAUGHT_EXCEPTION (see ST22)
+========================================================================
+
+Recommended Actions
+
+
+ 
+
+Event Name
+
+ABAP_CANC_JOB_INVALID_CLIENT
+
+(EVENT) Description
+
+Job cancelled due to non-existing client
+
+Threshold description: Number of aborted jobs in time period
+
+Error Information
+
+(Event) Context
+
+For each background job name the number of jobs which aborted because the client does not or no longer exist. All jobs are taken into consideration which fulfill the following criteria:
+•Job aborted between the last and the current run of this health check (according to enddate and endtime)  
+•Job has message 00(560) in its job log (which indicates that logon of user failed)
+•Job tried to start in a client which is not defined in table T000
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident:
+
+SM37: Search for the cancelled job and check the information in the joblog. 
+
+ 
+
+**************************************************************************************************************************************************************************************************************************************
+
+ 
+
+Event Name
+
+ABAP_CANC_JOB_INVALID_USER
+
+(EVENT) Description
+
+Job cancelled due to failed user logon
+
+Threshold description: Number of aborted jobs in time period
+
+Error Information
+
+(Event) Context
+
+For each background job name the number of jobs which aborted because of missing user authority is reported. All jobs are taken into consideration which fulfill the following criteria:
+•Job aborted between the last and the current run of this health check (according to enddate and endtime)  
+•Job has message 00(560) in its job log (which indicates that logon of user failed)
+•Job was started in an existing client
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident:
+
+SM37: Search for the cancelled job and check the information in the joblog. 
+
+ 
+
+**************************************************************************************************************************************************************************************************************************************
+
+ 
+
+Event Name
+
+ABAP_CANC_JOB_INVALID_VARIANT
+
+(EVENT) Description
+
+Job cancelled due to invalid variant
+
+Threshold description: Number of aborted jobs in time period
+
+Error Information
+
+(Event) Context
+
+For each background job name the number of jobs which aborted because the variant is not existing any longer or is invalid. All jobs are taken into consideration which fulfill the following criteria:
+•Job aborted between the last and the current run of this health check (according to enddate and endtime)  
+•Job has message DB(612) in its job log (which indicates that the variant is not valid)
+ 
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident:
+
+SM37: Search for the cancelled job and check the information in the joblog. 
+
+ 
+
+**************************************************************************************************************************************************************************************************************************************
+
+ 
+
+Event Name
+
+ABAP_CANC_JOB_DUMP
+
+(EVENT) Description
+
+Job cancelled due to dump
+
+Threshold description: Number of aborted jobs in time period
+
+Error Information
+
+(Event) Context
+
+For each background job name the number of jobs which aborted because of a dump during execution is reported. All jobs are taken into consideration which fulfill the following criteria:
+•Job aborted between the last and the current run of this health check (according to enddate and endtime)
+•Job is not an application job
+•Job has message 00(671) in its job log (which indicates that a dump occurred)
+•Job was started by a user with another name as 'CB*', 'CC*', 'CP*' or 'SAP_CUST_INI'  
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident: 
+
+SM37: Search for the cancelled job and check the information in the joblog. Navigate to the shortdump by doubleclicking on '(see st22)' in the joblog or search for the dump in ST22.
+
+Possible reason: sometimes there are two or more different jobs which schedule the same report. If this report cancels all executions in case another parallel execution is still in process having acquired an enqueue lock successfully, this causes cancellation of jobs with shortdumps.  
+
+ 
+
+*****************************************************************************************************************************************************************************************************************************************
+
+ 
+
+Event Name
+
+ABAP_CANC_JOB_DUMP_CUST_USR
+
+(EVENT) Description
+
+Job of customer user cancelled due to dump
+
+Threshold description: Number of aborted jobs in time period
+
+Error Information
+
+(Event) Context
+
+For each background job name the number of jobs which aborted because of a dump during execution is reported. All jobs are taken into consideration which fulfill the following criteria: 
+•Job aborted between the last and the current run of this health check (according to enddate and endtime)
+•Job is not an application job
+•Job has message 00(671) in its job log (which indicates that a dump occurred)
+•Job was started by a user with name 'CB*', 'CC*', 'CP*' or 'SAP_CUST_INI'   
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident: 
+
+SM37: Search for the cancelled job and check the information in the joblog. Navigate to the shortdump by doubleclicking on '(see st22)' in the joblog or search for the dump in ST22.
+
+Possible reason: sometimes there are two or more different jobs which schedule the same report. If this report cancels all executions in case another parallel execution is still in process having acquired an enqueue lock successfully, this causes cancellation of jobs with shortdumps.  
+
+ 
+
+*****************************************************************************************************************************************************************************************************************************************
+
+Event Name  
+
+ABAP_CANC_TECHJOB_ONE 
+
+(EVENT) Description
+
+Technical job cancelled (each cancellation reported)
+
+Threshold description: Number of aborted jobs in time period
+
+Error Information
+
+(EVENT) Context
+
+For each background job name the number of jobs which aborted during execution is reported. All jobs are taken into consideration which fulfill the following criteria:
+•Job aborted between the last and the current run of this health check (according to enddate and endtime)
+•Job is not an application job
+•Job is registered in job repository and has abortion code ‘C’ (create incident for every termination)
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident:
+
+SM37: Search for the cancelled job and check the information in the joblog.
+
+****************************************************************************************************************************************************************************************************** 
+
+Event Name
+
+ABAP_CANC_TECHJOB_THRESH_DAY
+
+(EVENT) Description
+
+Technical job (daily, cancellations above threshold)
+
+Threshold description: Number of consecutively aborted jobs
+
+Error Information
+
+(EVENT) Context
+
+For each background job name the number of jobs which consecutively aborted during execution is reported. All jobs are taken into consideration which fulfill the following criteria:
+•Job is member of a row of consecutively aborted jobs in the past, counting from now; there is no successful job run for this job name after this job (according to enddate and endtime, independent of the last run of this health check)
+•Job is not an application job
+•Job is registered in job repository and has abortion code ‘T’ (tolerate small number of terminations)
+•Job runs on a daily basis (in job repository frequency is set to ‘days’)
+
+If the reported number of jobs is reduced below threshold with a newer health check run, this incident is closed automatically. 
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident:
+
+SM37: Search for the cancelled job and check the information in the joblog. ********************************************************************************************************************************************************************************************************************************
+
+Event Name
+
+ABAP_CANC_TECHJOB_THRESH_EVENT 
+
+(EVENT) Description
+
+Technical job (event-based, cancellations above threshold)
+
+Threshold description: Number of consecutively aborted jobs 
+
+Error Information
+
+(EVENT) Context
+
+For each background job name the number of jobs which consecutively aborted during execution is reported. All jobs are taken into consideration which fulfill the following criteria:
+•Job is member of a row of consecutively aborted jobs in the past, counting from now; there is no successful job run for this job name after this job (according to enddate and endtime, independent of the last run of this health check)
+•Job is not an application job
+•Job is registered in job repository and has abortion code ‘T’ (tolerate small number of terminations)
+•Job runs event-based (in job repository no frequency is set)
+
+If the reported number of jobs is reduced below threshold with a newer health check run, this incident is closed automatically. 
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident:
+
+SM37: Search for the cancelled job and check the information in the joblog.
+
+****************************************************************************************************************************************************************************************************************************************** 
+
+Event Name
+
+ABAP_CANC_TECHJOB_THRESH_HOUR
+
+(EVENT) Description
+
+Technical job (hourly, cancellations above threshold)
+
+Threshold description: Number of consecutively aborted jobs
+
+Error Information
+
+(EVENT) Context
+
+For each background job name the number of jobs which consecutively aborted during execution is reported. All jobs are taken into consideration which fulfill the following criteria:
+•Job is member of a row of consecutively aborted jobs in the past, counting from now; there is no successful job run for this job name after this job (according to enddate and endtime, independent of the last run of this health check)
+•Job is not an application job
+•Job is registered in job repository and has abortion code ‘T’ (tolerate small number of terminations)
+•Job runs on a hourly basis (in job repository frequency is set to ‘hours’)
+
+If the reported number of jobs is reduced below threshold with a newer health check run, this incident is closed automatically.
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident: 
+
+SM37: Search for the cancelled job and check the information in the joblog.
+
+****************************************************************************************************************************************************************************************************************************************
+
+Event Name
+
+ABAP_CANC_TECHJOB_THRESH_MIN
+
+(EVENT) Description
+
+Technical job (per minute, cancell. above threshold)
+
+Threshold description: Number of consecutively aborted jobs
+
+Error Information
+
+(EVENT) Context
+
+For each background job name the number of jobs which consecutively aborted during execution is reported. All jobs are taken into consideration which fulfill the following criteria:
+•Job is member of a row of consecutively aborted jobs in the past, counting from now; there is no successful job run for this job name after this job (according to enddate and endtime, independent of the last run of this health check)
+•Job is not an application job
+•Job is registered in job repository and has abortion code ‘T’ (tolerate small number of terminations)
+•Job runs on a minutely basis (in job repository frequency is set to ‘minutes’)
+
+If the reported number of jobs is reduced below threshold with a newer health check run, this incident is closed automatically.
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident: 
+
+SM37: Search for the cancelled job and check the information in the joblog.
+
+*********************************************************************************************************************************************************************************************************************************
+
+Event Name
+
+ABAP_CANC_TECHJOB_THRESH_MONTH
+
+(EVENT) Description
+
+Technical job (monthly, cancellations above threshold)
+
+Threshold description: Number of consecutively aborted jobs
+
+Error Information
+
+(EVENT) Context
+
+For each background job name the number of jobs which consecutively aborted during execution is reported. All jobs are taken into consideration which fulfill the following criteria:
+•Job is member of a row of consecutively aborted jobs in the past, counting from now; there is no successful job run for this job name after this job (according to enddate and endtime, independent of the last run of this health check)
+•Job is not an application job
+•Job is registered in job repository and has abortion code ‘T’ (tolerate small number of terminations)
+•Job runs on a monthly basis (in job repository frequency is set to ‘months’)
+
+If the reported number of jobs is reduced below threshold with a newer health check run, this incident is closed automatically.
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident:
+
+SM37: Search for the cancelled job and check the information in the joblog.
+
+************************************************************************************************************************************************************************************************************************************
+
+Event Name
+
+ABAP_CANC_TECHJOB_THRESH_WEEK
+
+(EVENT) Description
+
+Technical job (weekly, cancellations above threshold)
+
+Threshold description: Number of consecutively aborted jobs
+
+Error Information
+
+(Event) Context
+
+For each background job name the number of jobs which consecutively aborted during execution is reported. All jobs are taken into consideration which fulfill the following criteria:
+•Job is member of a row of consecutively aborted jobs in the past, counting from now; there is no successful job run for this job name after this job (according to enddate and endtime, independent of the last run of this health check)
+•Job is not an application job
+•Job is registered in job repository and has abortion code ‘T’ (tolerate small number of terminations)
+•Job runs on a weekly basis (in job repository frequency is set to ‘weeks’)
+
+If the reported number of jobs is reduced below threshold with a newer health check run, this incident is closed automatically.
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident:
+
+SM37: Search for the cancelled job and check the information in the joblog.
+
+**********************************************************************************************************************************************************************************************************************************
+
+Event Name
+
+ABAP_CANC_TECHJOB_OTHER
+
+(EVENT) Description
+
+Job cancelled due to other reason
+
+Threshold description: Number of consecutively aborted jobs 
+
+Error Information
+
+(Event) Context
+
+For each background job name the number of jobs which consecutively aborted because of another reason (i.e. not because of a dump or missing user authority) is reported. All jobs are taken into consideration which fulfill the following criteria:
+•Job is member of a row of consecutively aborted jobs in the past, counting from now; there is no successful job run for this job name after this job (according to enddate and endtime, independent of the last run of this health check)
+•Job is not an application job
+•Job is not registered in job repository (in this case it is subject of one of the events  ABAP_CANC_TECHJOB_*)
+•Job has neither message 00(560) (which indicates that logon of user failed) nor message 00(671) in its job log (which indicates that a dump occurred)
+
+If the reported number of jobs is reduced below threshold with a newer health check run, this incident is closed automatically.
+
+Recommended Action
+
+Run the following transactions to gather useful information for analyzing and resolving the incident:
+
+SM37: Search for the cancelled job and check the information in the joblog.
+
+ 
+
+
+
+
+%_HC_FATAL_EXCEPTION
+
+This generic event is raised by the HC framework if the health check could not be executed correctly. This may have several reasons:
+?HC runtime exceeded the configured maximum runtime
+?A runtime exception was not caught
+?A dump occurred
+
+The framework will retry HC execution according to periodicilty settings. Usually encountered issues are only temporary and the the HC incident will be autoclosed after next successful run.
+
+Only if the incident is open for more than a day, manual root cause analysis is required.  
+
+

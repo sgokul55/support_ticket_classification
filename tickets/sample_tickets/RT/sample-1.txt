@@ -1,0 +1,18 @@
+﻿Summary:Attachments related check - create, read and delete
+
+Event Name: ATTACHMENT_API_CHECK
+
+
+Solution:
+..........
+Route this to CA-DMS
+
+Create, read and delete of attachment content to/from the KPRO content server should be possible.If there are some issues and this event is raised, following are the possibilities for failure.
+
+1.Content server is not working - Go to transaction SLG1 and provide the object name as "SDOK" and check the logs. Also check the logs for object name "SCMS " and these logs will provide more information on the errors.
+
+2.Check if the connection to Content Server is good: 
+
+a.Execute transaction OAC0 -> Open the Repository which is being called from attachment service -> Perform the connection test and confirm that the Content Server can be reached
+
+3.If the error is not clear from Step1, create an incident to component : CA-DMS

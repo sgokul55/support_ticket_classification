@@ -1,0 +1,124 @@
+Ticket Short Description: 1010185479
+
+OAuth 2.0 Client PSE missing (maybe it was not setup): SSFA/OA2CS
+========================================================================
+
+Ticket Description:
+
+This incident has been created automatically. Since the Customer is not involved, the incident has to be solved internally by Service Provider/Support/Development to avoid negative impact for the customer business.
+
+Diagnostic Information:
+
+Event Name: OA2C_PSE_MISSING
+Event Context: SSFA/OA2CS
+Application Component: BC-SEC-STP
+
+Additional Description:
+
+OAuth 2.0 Client PSE missing (maybe OAuth 2.0 Client configuration is not setup)
+========================================================================
+
+Recommended Actions:
+
+CERTIFICATE_EXPIRED
+
+Certificate has already expired and has to be replaced.   (This is only  theoretical as we already check an expiry in 30 days --> will be moved to 90)
+
+Create internal message on BC-SEC-STP with the concerned certificate
+
+CERTIFICATE_EXPIRING
+
+Certificate will expire in the next 90 days and has to be replaced. 
+
+Create internal message on BC-SEC-STP with the concerned certificate
+
+Re-run SPC task:
+
+SAP_CLM_SYSTEM_CONFIGURATION   (Software Change and Software Upgrade) --> Update of the  Standard Anonymous (SSLC ANONYM) and Standard Default (SSLC DFAULT)
+
+SAP_CLM_APPL_CONFIGURATION   (Software Change and Software Upgrade) -->Update of the  SAP Anonymous (SSLC SA_<client>) and SAP Default (SSLC SD_<client>)
+
+CERTIFICATE_MALFORMED
+
+There are several possibilities, which need to be checked. The key may be too short or insecure hash may be used or the certificate is self-signed although it should not be. 
+
+Create internal message on BC-SEC-STP with the error inforrmation you find there. 
+
+CERTIFICATE_MAPPING_DISABLED
+
+New certificate mapping (certrule) disabled. 
+
+Re-run SPC tasks:
+
+SAP_CLM_SYSTEM_CONFIGURATION   (Software Change and Software Upgrade) 
+
+CLIENT_PSE_MISSING
+
+Mandatory SSL Client PSE missing.
+
+Re-run SPC task:
+
+SAP_CLM_SYSTEM_CONFIGURATION   (Software Change and Software Upgrade) --> Update of the  Standard Anonymous (SSLC ANONYM) and Standard Default (SSLC DFAULT)
+
+SAP_CLM_APPL_CONFIGURATION   (Software Change and Software Upgrade) -->Update of the  SAP Anonymous (SSLC SA_<client>) and SAP Default (SSLC SD_<client>)
+
+OA2C_PSE_MISSING
+
+Mandatory OAuth PSE missing. 
+
+Re-run SPC task:
+
+SAP_CLM_SEC   (Cloud Security) --> Maintain OAuth IdP
+
+REVOCATION_CHECK_DISABLED
+
+Certificate Revocation Check is not enabled. Re-run SPC task SAP_CLM_SYSTEM_CONFIGURATION!
+
+REVOCATION_PSE_INCONSISTENT
+
+Trustlist of Revocation PSE lacks certificates present. Create internal message on BC-SEC-STP with the concerned PSE.
+
+SAML_PSE_MISSING
+
+SAML PSE missing (maybe SAML2 service provider is not setup). 
+
+Re-run SPC task:
+
+SAP_CLM_APPL_CONFIGURATION   (Software Change and Software Upgrade) -->Update of the  SAML PSE files
+
+SERVER_PSE_MALFORMED
+
+Server PSE not well-formed. Check error details in STRUST and create internal message on BC-SEC-STP with the error information you find there. 
+
+SERVER_PSE_MISSING
+
+Server PSE (SSLS/DFAULT) does not exist. 
+
+Re-run SPC task:
+
+SAP_CLM_SYSTEM_CONFIGURATION   (Software Change and Software Upgrade) 
+
+TRUSTLIST_MALFORMED
+
+Trustlist of PSE is not well-formed. Check in STRUST and create internal message on BC-SEC-STP with the error information you find there. 
+
+WRONG_SSF_LIB
+
+Some SSF library other than the cryptolib was found.. Create internal message on BC-SEC-STP.
+
+ 
+
+
+
+
+%_HC_FATAL_EXCEPTION
+
+This generic event is raised by the HC framework if the health check could not be executed correctly. This may have several reasons:
+?HC runtime exceeded the configured maximum runtime
+?A runtime exception was not caught
+?A dump occurred
+
+The framework will retry HC execution according to periodicilty settings. Usually encountered issues are only temporary and the the HC incident will be autoclosed after next successful run.
+
+Only if the incident is open for more than a day, manual root cause analysis is required. 
+

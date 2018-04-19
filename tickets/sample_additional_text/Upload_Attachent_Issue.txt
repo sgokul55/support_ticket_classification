@@ -1,0 +1,3 @@
+Additional Description:
+
+Error while uploading an attachment to the content server

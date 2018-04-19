@@ -1,0 +1,66 @@
+Incident:
+
+1010105668
+
+Description:
+
+Search Connector(s) not in status active: BC-EIM-ESH
+
+Detailed Description:
+
+This incident has been created automatically. Since the Customer is not involved, the incident has to be solved internally by Service Provider/Support/Development to avoid negative impact for the customer business.
+
+Diagnostic Information:
+
+Event Name: CONNECTOR_INACTIVE
+Event Context: BC-EIM-ESH
+Application Component: BC-EIM-ESH
+
+Additional Description:
+
+Search object connector 'Search-term statistics per user (EBXALL~ESH_PS_TERMS_USR~)' has status ''
+
+Recommended Actions:
+
+CONNECTOR_INACTIVE
+
+If this event is raised some connectors are not active.
+
+Actions:
+•With transaction ESH_COCKPIT you can administrate connectors.
+•The connectors can be filtered by status.
+•Connectors in status “Inactive” were explicit set by a user into this status.
+•The action menu shows only actions which are possible for the selected connectors.•With action "Schedule Indexing" the connectors get status "Active".
+•The processing of action "Index User Authority" could be helpful too.
+
+
+ESH_SETUP_ISSUE
+
+If this event is raised the database table ESH_ADM_TREX has no entry. Then Enterprise Search is not maintained in this system.
+
+Actions, if system is running in the cloud:
+•Enterprise Search can be configured with the following task list (transaction STC01):•SAP_ESH_INITIAL_SETUP_WRK_CLIENT
+The task list have to run in the working client. It uses default data for Enterprise Search setup.
+
+
+Actions, if system is not running in the cloud:
+•Clarify with the system owner if Enterprise Search is needed in this system.
+•Enterprise Search can be configured with the following task list (transaction STC01):
+•SAP_ESH_INITIAL_SETUP_000_CLIENT
+The task list have to run in client 000.
+•SAP_ESH_INITIAL_SETUP_WRK_CLIENT
+The task list have to run in the working client.
+
+•Which models have to be used to create connectors decides the system owner.
+
+
+%_HC_FATAL_EXCEPTION
+
+This generic event is raised by the HC framework if the health check could not be executed correctly. This may have several reasons:
+?HC runtime exceeded the configured maximum runtime
+?A runtime exception was not caught
+?A dump occurred
+
+The framework will retry HC execution according to periodicilty settings. Usually encountered issues are only temporary and the the HC incident will be autoclosed after next successful run.
+
+Only if the incident is open for more than a day, manual root cause analysis is required.  

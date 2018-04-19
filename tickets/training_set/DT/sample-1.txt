@@ -1,0 +1,4 @@
+Summary:Search Connector(s) not in status active: BC-EIM-ESH
+Event Name: CONNECTOR_INACTIVE
+
+Event Context: BC-EIM-ESH

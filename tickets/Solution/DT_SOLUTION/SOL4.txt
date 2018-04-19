@@ -1,0 +1,5 @@
+Run the following transactions to gather useful information for analyzing and resolving the incident: 
+
+SM37: Search for the cancelled job and check the information in the joblog. Navigate to the shortdump by doubleclicking on '(see st22)' in the joblog or search for the dump in ST22.
+
+Possible reason: sometimes there are two or more different jobs which schedule the same report. If this report cancels all executions in case another parallel execution is still in process having acquired an enqueue lock successfully, this causes cancellation of jobs with shortdumps.  

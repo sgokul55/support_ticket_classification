@@ -1,0 +1,24 @@
+1010321414	Key too short or insecure hash used or self-signed certific:
+1010100645	Key too short or insecure hash used or self-signed certific:
+1010100697	Key too short or insecure hash used or self-signed certific:
+1010185563	Key too short or insecure hash used or self-signed certific:
+
+1010185479	OAuth 2.0 Client PSE missing (maybe it was not setup): SSFA/
+1010272659	OAuth 2.0 Client PSE missing (maybe it was not setup): SSFA/
+1010101236	OAuth 2.0 Client PSE missing (maybe it was not setup): SSFA/
+1010230867	OAuth 2.0 Client PSE missing (maybe it was not setup): SSFA/
+1010256793	OAuth 2.0 Client PSE missing (maybe it was not setup): SSFA/
+
+1010085940	Trustlist of PSE is not well-formed (e.g. empty, missing ent
+1010086001	Trustlist of PSE is not well-formed (e.g. empty, missing ent
+1010101274	Trustlist of PSE is not well-formed (e.g. empty, missing ent
+1010101246	Trustlist of PSE is not well-formed (e.g. empty, missing ent
+1010264851	Trustlist of PSE is not well-formed (e.g. empty, missing ent
+
+
+1010321421	Mandatory SSL CLient PSE missing: SSLC/100_SD
+1010321344	Mandatory SSL CLient PSE missing: SSLC/100_SD
+1010229078	Mandatory SSL CLient PSE missing: SSLC/100_SD
+1010314601	Mandatory SSL CLient PSE missing: SSLC/100_SD
+1010315892	Mandatory SSL CLient PSE missing: SSLC/100_SA
+

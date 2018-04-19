@@ -1,0 +1,5 @@
+Summary:Search Connector(s) cannot be used for search: BC-EIM-ESH
+
+Event Name: CONNECTOR_NOT_SEARCHABLE
+Event Context: BC-EIM-ESH
+

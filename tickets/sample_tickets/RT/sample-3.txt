@@ -1,0 +1,11 @@
+Summary:Trustlist of PSE is not well-formed (e.g. empty, missing ent
+Event Name: TRUSTLIST_MALFORMED
+Event Context: SSLC/DFAULT-trustlist-10
+Application Component: BC-SEC-STP
+Trust_List:SSL Client PSE DFAULT 
+
+Solution:
+
+Route to BC-SEC-STP
+
+Trustlist of PSE is not well-formed. Check in STRUST and create internal message on BC-SEC-STP with the error information you find there. 

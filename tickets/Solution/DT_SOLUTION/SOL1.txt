@@ -1,0 +1,8 @@
+If this event is raised some connectors are not active.
+
+Actions:
+•With transaction ESH_COCKPIT you can administrate connectors.
+•The connectors can be filtered by status.
+•Connectors in status “Inactive” were explicit set by a user into this status.
+•The action menu shows only actions which are possible for the selected connectors.•With action "Schedule Indexing" the connectors get status "Active".
+•The processing of action "Index User Authority" could be helpful too.

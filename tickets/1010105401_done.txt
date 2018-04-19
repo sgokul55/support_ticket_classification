@@ -1,0 +1,84 @@
+Incident:
+
+1010105401
+
+Description:
+
+Search Connector(s) cannot be used for search: BC-EIM-ESH
+
+Detailed Description:
+
+This incident has been created automatically. Since the Customer is not involved, the incident has to be solved internally by Service Provider/Support/Development to avoid negative impact for the customer business.
+
+Diagnostic Information:
+
+Event Name: CONNECTOR_NOT_SEARCHABLE
+Event Context: BC-EIM-ESH
+Application Component: BC-EIM-ESH
+
+Additional Description:
+
+Consistency check of connector 'EBXALL~ESH_PS_TERMS_USR~' step 'Core Data Services' returns error
+Search on connector could not be executed
+Executing test search for conn. returned:
+
+Recommended Actions:
+
+CONNECTOR_NOT_SEARCHABLE
+
+If this event is raised not all connectors are searchable.
+
+Actions:
+•Execute task list SAP_ESH_CONSISTENCY_CHECK with transaction STC01.
+•If task list ends with errors create an incident (application component BC-EIM-ESH).
+•Attach the log to the incident or notice the task list run in the incident.
+
+ESH_SETUP_ISSUE
+
+If this event is raised the database table ESH_ADM_TREX has no entry. Then Enterprise Search is not maintained in this system.
+
+Action, if system is running in the cloud:
+•Enterprise Search can be configured with the following task list (transaction STC01):•SAP_ESH_INITIAL_SETUP_WRK_CLIENT
+The task list have to run in the working client. It uses default data for Enterprise Search setup.
+
+
+Actions, if system is not running in the cloud:
+•Clarify with the system owner if Enterprise Search is needed in this system.
+•Enterprise Search can be configured with the following task list (transaction STC01):
+•SAP_ESH_INITIAL_SETUP_000_CLIENT
+The task list have to run in client 000.
+•SAP_ESH_INITIAL_SETUP_WRK_CLIENT
+The task list have to run in the working client.
+•Which models have to be used to create connectors decides the system owner.
+
+ESH_SEARCH_INSUFFICIENT_PRIVILEGE
+
+@Error - "Search via ESH_SEARCH stored procedure was unsuccessful. - insufficient privilege: Not authorized"
+
+If this event is raised, then Enterprise Search based on ABAP CDS-based search models is not working due to missing authorizations to SAP HANA DB user.  
+
+Actions:
+
+•Assign the following authorizations to SAP HANA Primary DB user. Check the help link for more details.
+
+
+GRANT EXECUTE ON SYS.ESH_CONFIG TO <SAP HANA Primary DB Connection User>; 
+GRANT EXECUTE ON SYS.ESH_SEARCH TO <SAP HANA Primary DB Connection User>; 
+GRANT SELECT ON _SYS_RT.ESH_MODEL TO <SAP HANA Primary DB Connection User>; 
+GRANT SELECT ON _SYS_RT.ESH_MODEL_PROPERTY TO <SAP HANA Primary DB Connection User>; 
+GRANT EXECUTE ON SYS.TREXVIADBSL TO <SAP HANA Primary DB Connection User>; 
+GRANT EXECUTE ON SYS.TREXVIADBSLWITHPARAMETER TO <SAP HANA Primary DB Connection User>; 
+
+•Run the report (in SE38) ESH_CDSABAP_ACTIVATION to activate the ABAP CDS-based Search Connectors. If the report ends with errors create an incident(application component BC-EIM-ESH).
+ 
+
+%_HC_FATAL_EXCEPTION
+
+This generic event is raised by the HC framework if the health check could not be executed correctly. This may have several reasons:
+?HC runtime exceeded the configured maximum runtime
+?A runtime exception was not caught
+?A dump occurred
+
+The framework will retry HC execution according to periodicilty settings. Usually encountered issues are only temporary and the the HC incident will be autoclosed after next successful run.
+
+Only if the incident is open for more than a day, manual root cause analysis is required.  

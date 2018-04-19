@@ -1,0 +1,20 @@
+Summary:OAuth 2.0 Client PSE missing (maybe it was not setup): SSFA/OA2CS
+Event Name: OA2C_PSE_MISSING
+Event Context: SSFA/OA2CS
+Application Component: BC-SEC-STP
+
+Solution:
+
+DevOps
+
+OA2C_PSE_MISSING
+
+Mandatory OAuth PSE missing. 
+
+Re-run SPC task:
+
+SAP_CLM_SEC   (Cloud Security) --> Maintain OAuth IdP
+
+REVOCATION_CHECK_DISABLED
+
+Certificate Revocation Check is not enabled. Re-run SPC task SAP_CLM_SYSTEM_CONFIGURATION!

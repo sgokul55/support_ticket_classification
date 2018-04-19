@@ -1,0 +1,4 @@
+Summary:Mandatory SSL CLient PSE missing: SSLC/100_SD
+Event Name: CLIENT_PSE_MISSING
+Event Context: SSLC/100_SD
+Application Component: BC-SEC-STP

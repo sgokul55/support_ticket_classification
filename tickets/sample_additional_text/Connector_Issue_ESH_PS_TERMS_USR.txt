@@ -1,0 +1,7 @@
+
+Additional Description:
+
+Consistency check of connector 'EBXALL~ESH_PS_TERMS_USR~' step 'Core Data Services' returns error
+Search on connector could not be executed
+Executing test search for conn. returned:
+

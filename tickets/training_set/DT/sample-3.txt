@@ -1,0 +1,4 @@
+Summary:OAuth 2.0 Client PSE missing (maybe it was not setup): SSFA/OA2CS
+Event Name: OA2C_PSE_MISSING
+Event Context: SSFA/OA2CS
+Application Component: BC-SEC-STP

@@ -1,0 +1,1 @@
+Description:HC event FATAL EXCEPTION occurred in EBX(100)
